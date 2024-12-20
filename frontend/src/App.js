@@ -3,6 +3,9 @@ import Dashboard from './pages/dashboard'
 import Login from './pages/login'
 import Register from './pages/register'
 import Header from './app/components/Header'
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
+import {register ,reset} from './features/auth/authslice'
 
 
 function App() {
@@ -18,6 +21,7 @@ function App() {
           </Routes> 
         </div>
       </Router>  
+      <ToastContainer />
     </>
   );
 }
