@@ -17,20 +17,13 @@ connectDB()
 
 const app = express();
 
-const allowedOrigins = ['http://localhost:3000','https://scintillating-pothos-051a4d.netlify.app/'];
 
 const corsOptions = {
-    origin: (origin, callback) => {
-        if (allowedOrigins.includes(origin) || !origin) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-};
-
-app.use(cors(corsOptions));
-
+    origin: process.env.CLIENT_URL,
+    credentials: true,
+    optionSuccessStatus: 200
+}
+app.use(cors(corsOptions))
 app.use(express.json())
 app.use(express.urlencoded({extended : false}))
 
