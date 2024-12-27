@@ -17,7 +17,7 @@ connectDB()
 
 const app = express();
 
-const allowedOrigins = ['http://localhost:3000','http://mern-app-cyan.vercel.app'];
+const allowedOrigins = ['http://localhost:3000','https://scintillating-pothos-051a4d.netlify.app/'];
 
 const corsOptions = {
     origin: (origin, callback) => {
