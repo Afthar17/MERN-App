@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "proxy": "https://mern-app-bbha.onrender.com",
+  "proxy": "https://mern-app-gd6e.onrender.com",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
