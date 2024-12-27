@@ -4,6 +4,7 @@ const colors = require('colors')
 const {errorHandler} =  require('./middleware/errormiddleware');
 const { connectDB } = require('./config/db');
 const path = require('path')
+const cors = require('cors')
 
 
 const port = process.env.PORT || 5000
@@ -11,7 +12,18 @@ const port = process.env.PORT || 5000
 
 connectDB()
 
+
+
+
 const app = express();
+
+app.use(cors())
+const corsOptions = {
+    origin: 'http://localhost:3000'||'http://mern-app-cyan.vercel.app'
+    ,
+    credentials: true,
+    optionSuccessStatus: 200
+}
 
 app.use(express.json())
 app.use(express.urlencoded({extended : false}))
