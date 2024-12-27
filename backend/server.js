@@ -17,13 +17,19 @@ connectDB()
 
 const app = express();
 
-app.use(cors())
+const allowedOrigins = ['http://localhost:3000','http://mern-app-cyan.vercel.app'];
+
 const corsOptions = {
-    origin: 'http://localhost:3000'||'http://mern-app-cyan.vercel.app'
-    ,
-    credentials: true,
-    optionSuccessStatus: 200
-}
+    origin: (origin, callback) => {
+        if (allowedOrigins.includes(origin) || !origin) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json())
 app.use(express.urlencoded({extended : false}))
